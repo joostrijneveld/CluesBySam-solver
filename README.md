@@ -14,7 +14,7 @@ pip install cluesbysam-solver
 
 ## Usage example
 
-This section describes a fictional 3x3 puzzle; I wouldn't want to give away the solution to any of Sam's puzzles!
+This section describes a fictional 3x3 puzzle; I wouldn't want to give away the solution to any of Sam's puzzles! You can also directly read the code for the below example without intermittent explanation at [example.py](example.py).
 
 First we define a grid of people for our puzzle:
 
