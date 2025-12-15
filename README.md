@@ -1,6 +1,6 @@
-# CluesBySam Solver
+# 'Clues by Sam' Solver
 
-This project provides a thin wrapper around the [Z3 SMT solver](https://en.wikipedia.org/wiki/Z3_Theorem_Prover) to assist in solving [CluesBySam puzzles](https://cluesbysam.com). Of course the whole point of such puzzles is to solve them manually, but it seemed like a nice problem to apply Z3 to. In the end the majority of this project focusses on providing an ergonomic API; the actual Z3 complexity is very low. It turns out finding a way to formalize Sam's clues can be quite fun in and of itself!
+This project provides a thin wrapper around the [Z3 SMT solver](https://en.wikipedia.org/wiki/Z3_Theorem_Prover) to assist in solving ['Clues by Sam' puzzles](https://cluesbysam.com). Of course the whole point of such puzzles is to solve them manually, but it seemed like a nice problem to apply Z3 to. In the end the majority of this project focusses on providing an ergonomic API; the actual Z3 complexity is very low. It turns out finding a way to formalize Sam's clues can be quite fun in and of itself!
 
 ## Installation
 
