@@ -82,11 +82,11 @@ This gives us Dave and Eve;
 [+] Eve must be:        Innocent
 ```
 
-Dave says that *"The criminals in row 1 are connected."* There's a convenient function to express exactly that; specifying either `row` or `column` and the expected role, we get an assertion to add. 
+Dave says that *"The criminals in row 1 are connected."* There's a convenient function to express exactly that; by specifying the expected role and a sequence of people, we get an assertion to add.
 
 ```python
 # <Dave> The criminals in row 1 are connected
-cs.add(cs.connected(role=CRIMINAL, row=1))
+cs.add(cs.connected(CRIMINAL, cs.row(1)))
 ```
 
 Unfortunately, it does not immediately lead to much..

@@ -22,7 +22,7 @@ shared_neighbors = cs.neighbors("Alice") & cs.neighbors("Grace")
 cs.add(cs.num_innocents(shared_neighbors) == len(shared_neighbors))
 
 # <Dave> The criminals in row 1 are connected
-cs.add(cs.connected(role=CRIMINAL, row=1))
+cs.add(cs.connected(CRIMINAL, cs.row(1)))
 
 # <Eve> There are exactly 2 innocents in column C
 cs.add(cs.num_innocents(cs.column("C")) == 2)

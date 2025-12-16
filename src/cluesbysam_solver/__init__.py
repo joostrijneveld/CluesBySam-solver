@@ -22,6 +22,17 @@ def Odd(x):
     return Not(Even(x))
 
 
+class IntersectionList(list):
+    """For cases where you need an ordered sequence, but also want to do intersections."""
+
+    def __and__(self, other):
+        result = self.__class__()
+        for o in other:
+            if o in self:
+                result.append(o)
+        return result
+
+
 class ClueSolver:
     known: Set
     s: Solver
@@ -74,7 +85,9 @@ class ClueSolver:
     def to_persons(generator):
         @wraps(generator)
         def wrapper(self, *args, **kwargs):
-            return set([self.people[x] for x in generator(self, *args, **kwargs)])
+            return IntersectionList(
+                self.people[x] for x in generator(self, *args, **kwargs)
+            )
 
         return wrapper
 
@@ -157,16 +170,7 @@ class ClueSolver:
     def num_criminals(people):
         return sum(people)
 
-    def connected(self, role, column=None, row=None):
-        if row is not None:
-            people = self.row(row)
-            before, after = self.left_of, self.right_of
-        elif column is not None:
-            people = self.column(column)
-            before, after = self.above, self.below
-        else:
-            raise Exception("Specify either a row or a column")
-
+    def connected(self, role, people):
         if role == CRIMINAL:
             num_role = self.num_criminals
         elif role == INNOCENT:
@@ -177,8 +181,8 @@ class ClueSolver:
                 Not(
                     And(
                         p == 1 - role,
-                        num_role(before(p)) > 0,
-                        num_role(after(p)) > 0,
+                        num_role(people[: people.index(p)]) > 0,
+                        num_role(people[people.index(p) + 1 :]) > 0,
                     )
                 )
                 for p in people
