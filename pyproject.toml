@@ -1,6 +1,6 @@
 [project]
 name = "cluesbysam-solver"
-version = "0.1.1"
+version = "0.2.0"
 description = "Wrapper around the Z3 SMT Solver to assist in solving CluesBySam puzzles."
 readme = "README.md"
 authors = [{ name = "Joost Rijneveld", email = "joost@joostrijneveld.nl" }]
